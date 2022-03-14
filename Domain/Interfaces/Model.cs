@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces
 {
-    class Model
+    public interface Model<H>
     {
+        void Add(H y);
+        void Delete(H z);
+        List<H> Read();
     }
 }
