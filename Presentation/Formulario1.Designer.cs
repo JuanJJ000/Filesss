@@ -29,7 +29,7 @@ namespace Presentation
         /// </summary>
         private void InitializeComponent()
         {
-            this.tvwFiles = new System.Windows.Forms.TreeView();
+            this.treevwFiles = new System.Windows.Forms.TreeView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.rchtbxDatos = new System.Windows.Forms.RichTextBox();
@@ -47,12 +47,13 @@ namespace Presentation
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tvwFiles
+            // treevwFiles
             // 
-            this.tvwFiles.Location = new System.Drawing.Point(3, 3);
-            this.tvwFiles.Name = "tvwFiles";
-            this.tvwFiles.Size = new System.Drawing.Size(121, 300);
-            this.tvwFiles.TabIndex = 0;
+            this.treevwFiles.Location = new System.Drawing.Point(3, 3);
+            this.treevwFiles.Name = "treevwFiles";
+            this.treevwFiles.Size = new System.Drawing.Size(121, 300);
+            this.treevwFiles.TabIndex = 0;
+            this.treevwFiles.DoubleClick += new System.EventHandler(this.treevwFiles_DoubleClick);
             // 
             // openFileDialog1
             // 
@@ -73,7 +74,7 @@ namespace Presentation
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.tvwFiles);
+            this.splitContainer1.Panel1.Controls.Add(this.treevwFiles);
             // 
             // splitContainer1.Panel2
             // 
@@ -106,28 +107,28 @@ namespace Presentation
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New text";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Open file";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Save text";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -156,9 +157,7 @@ namespace Presentation
 
         #endregion
 
-        private System.Windows.Forms.TreeView tvwFiles;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TreeView treevwFiles;
         private System.Windows.Forms.RichTextBox rchtbxDatos;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -167,6 +166,8 @@ namespace Presentation
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        public System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        public System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

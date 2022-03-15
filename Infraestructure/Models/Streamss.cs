@@ -51,21 +51,9 @@ namespace Infraestructure.Models
             {
                 using (FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Read))
                 {
-                    binaryReader = new BinaryReader(fileStream);
-                    long length = binaryReader.BaseStream.Length;
-
-                    if (length == 0)
-                    {
-                        return t;
-                    }
-                    binaryReader.BaseStream.Seek(0, SeekOrigin.Begin);
-                    while (binaryReader.BaseStream.Position < length)
-                    {
 
                         t = binaryReader.ReadString();
-                            
-                        
-                    }
+                   
                 }
                 return t;
             }
