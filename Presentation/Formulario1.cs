@@ -44,27 +44,29 @@ namespace Presentation
         #region menustrip
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Title = "Abrir archivo... ";
+            //openFileDialog1.Title = "Abrir archivo... ";
 
-            string text = string.Empty;
+            //string text = string.Empty;
 
-            openFileDialog1.Filter = "txt files (*.txt)|*.txt";
-            openFileDialog1.FilterIndex = 1;
-            openFileDialog1.RestoreDirectory = false;
+            //openFileDialog1.Filter = "txt files (*.txt)|*.txt";
+            //openFileDialog1.FilterIndex = 1;
+            //openFileDialog1.RestoreDirectory = false;
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
+            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            //{
 
-                text = openFileDialog1.FileName;
+            //    text = openFileDialog1.FileName;
 
 
-                var fileStream = openFileDialog1.OpenFile();
+            //    var fileStream = openFileDialog1.OpenFile();
 
-                using (StreamReader reader = new StreamReader(fileStream))
-                {
-                    rchtbxDatos.Text = reader.ReadToEnd();
-                }
-            }
+            //    using (StreamReader reader = new StreamReader(fileStream))
+            //    {
+            //        rchtbxDatos.Text = reader.ReadToEnd();
+            //    }
+            //}
+
+            rchtbxDatos.Text = string.Empty;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,13 +113,12 @@ namespace Presentation
 
         private void treevwFiles_DoubleClick(object sender, EventArgs e)
         {
-            rchtbxDatos.Text = string.Empty;
+           rchtbxDatos.Text = string.Empty;
             string textos = string.Empty;
 
-            textos = treevwFiles.SelectedImageKey;
-            rchtbxDatos.Text = texto.Read((Path.GetDirectoryName(openFileDialog1.FileName)));
-
-
+            textos = treevwFiles.SelectedNode.Text;
+           
+            rchtbxDatos.Text = texto.Read((textos));
 
 
         }
