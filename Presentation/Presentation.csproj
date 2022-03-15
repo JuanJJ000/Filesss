@@ -106,6 +106,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Appcore\Appcore.csproj">
+      <Project>{E3B372BE-0664-4972-9760-0D4284DEF327}</Project>
+      <Name>Appcore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{D19229C5-9935-453A-95B7-A99336B96763}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infraestructure\Infraestructure.csproj">
       <Project>{6FBFFCF1-DFBA-45D3-8624-5685BDF413FF}</Project>
       <Name>Infraestructure</Name>

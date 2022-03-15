@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Appcore.IServices
+namespace Domain.Interface
 {
-    public interface IServices<T>
+    public interface TextoModel : IModel<String>
     {
 
-        void Add(T t);
-        string Read(T t);
+        String Guardar(string text);
 
     }
 }

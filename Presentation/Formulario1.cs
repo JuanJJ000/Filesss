@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Appcore.IService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,14 @@ namespace Presentation
 {
     public partial class Formulario1 : Form
     {
-        public Formulario1()
+
+        ITexto texto;
+        public Formulario1(ITexto Texto)
         {
+            this.texto = Texto;
             InitializeComponent();
         }
-
+       
         #region menustrip
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -36,8 +40,8 @@ namespace Presentation
             string text = string.Empty;
 
             openFileDialog1.Filter = "txt files (*.txt)|*.txt";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = false;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -57,6 +61,11 @@ namespace Presentation
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.ShowDialog();
+        }
+
+        private void Formulario1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

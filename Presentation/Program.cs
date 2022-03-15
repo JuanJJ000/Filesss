@@ -1,4 +1,7 @@
-﻿using Autofac;
+﻿using Appcore.IService;
+using Appcore.Service;
+using Autofac;
+using Domain.Interface;
 using Infraestructure.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +21,11 @@ namespace Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formulario1());
+            var builder = new ContainerBuilder();
+            builder.RegisterType<Streamss>().As<TextoModel>();
+            builder.RegisterType<TextoService>().As<ITexto>();
+            var container = builder.Build();
+            Application.Run(new Formulario1(container.Resolve<ITexto>()));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Domain.Interface
     public interface IModel<T>
     {
         void Add(T t);
-        void Read(T t);
-
+        string Read(T t);
+      
     }
 }

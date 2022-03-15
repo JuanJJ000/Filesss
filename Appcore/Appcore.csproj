@@ -67,11 +67,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IService\IServices.cs" />
+    <Compile Include="IService\ITexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BaseServices.cs" />
+    <Compile Include="Service\TextoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{D19229C5-9935-453A-95B7-A99336B96763}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
