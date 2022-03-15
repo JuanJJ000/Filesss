@@ -11,7 +11,6 @@ namespace Infraestructure.Models
     public class Streamss : TextoModel
     {
 
-        private BinaryReader binaryReader;
         private BinaryWriter binaryWriter;
         private string fileName = "archivo.txt";
         public Streamss()
@@ -47,15 +46,14 @@ namespace Infraestructure.Models
         public string Read(string t)
         {
             
+          string text= string.Empty;
+           
             try
             {
-                using (FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Read))
-                {
 
-                        t = binaryReader.ReadString();
-                   
-                }
-                return t;
+                text = Path.GetFullPath(@t);
+
+                return text;
             }
             catch (IOException)
             {
