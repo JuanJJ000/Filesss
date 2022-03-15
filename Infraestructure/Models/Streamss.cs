@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Models
 {
+    int a;
     public class Streamss : TextoModel
     {
 
