@@ -14,7 +14,7 @@ namespace Presentation
 {
     public partial class Formulario1 : Form
     {
-       
+        string rutapath= string.Empty;
         ITexto texto;
         public Formulario1(ITexto Texto)
         {
@@ -24,9 +24,8 @@ namespace Presentation
         private void Formulario1_Load(object sender, EventArgs e)
         {
 
+
         }
-
-
 
         private void LoadFolder(TreeNodeCollection nodes, DirectoryInfo folder)
         {
@@ -44,28 +43,7 @@ namespace Presentation
         #region menustrip
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //openFileDialog1.Title = "Abrir archivo... ";
-
-            //string text = string.Empty;
-
-            //openFileDialog1.Filter = "txt files (*.txt)|*.txt";
-            //openFileDialog1.FilterIndex = 1;
-            //openFileDialog1.RestoreDirectory = false;
-
-            //if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            //{
-
-            //    text = openFileDialog1.FileName;
-
-
-            //    var fileStream = openFileDialog1.OpenFile();
-
-            //    using (StreamReader reader = new StreamReader(fileStream))
-            //    {
-            //        rchtbxDatos.Text = reader.ReadToEnd();
-            //    }
-            //}
-
+           
             rchtbxDatos.Text = string.Empty;
         }
 
@@ -76,6 +54,7 @@ namespace Presentation
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            treevwFiles.Nodes.Clear();
             openFileDialog1.Title = "Abrir carpeta... ";
 
             string text = string.Empty;
@@ -86,7 +65,7 @@ namespace Presentation
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
+                rutapath = Path.GetDirectoryName(openFileDialog1.FileName);
                 LoadFolder(treevwFiles.Nodes, new DirectoryInfo(Path.GetDirectoryName(openFileDialog1.FileName)));
 
             }
@@ -96,6 +75,7 @@ namespace Presentation
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+           
             saveFileDialog1.Title = "Guardar archivo como... ";
 
             string text = string.Empty;
@@ -103,12 +83,27 @@ namespace Presentation
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = false;
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                if (File.Exists(saveFileDialog1.FileName))
+                {
+                    MessageBox.Show(rchtbxDatos.Text);
+                    string txt = saveFileDialog1.FileName;
+                    texto.Add(rchtbxDatos.Text, txt);
+                   
+                   
+                }
+                else                
+                {
+                    MessageBox.Show(rchtbxDatos.Text);
+                    string txt = saveFileDialog1.FileName;
+                    texto.Add(rchtbxDatos.Text, txt);
+                  
+                }
 
 
             }
+            rchtbxDatos.Text = string.Empty;
         }
 
         private void treevwFiles_DoubleClick(object sender, EventArgs e)
@@ -116,7 +111,7 @@ namespace Presentation
            rchtbxDatos.Text = string.Empty;
             string textos = string.Empty;
 
-            textos = treevwFiles.SelectedNode.Text;
+            textos = rutapath + "\\" + treevwFiles.SelectedNode.Text;
            
             rchtbxDatos.Text = texto.Read((textos));
 
@@ -126,9 +121,4 @@ namespace Presentation
 
 
     #endregion
-
-
-
-
 }
-

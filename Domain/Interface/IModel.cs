@@ -8,7 +8,7 @@ namespace Domain.Interface
 {
     public interface IModel<T>
     {
-        void Add(T t);
+        void Add(T t, T g);
         string Read(T t);
       
     }

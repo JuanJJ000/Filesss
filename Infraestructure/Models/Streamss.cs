@@ -12,21 +12,21 @@ namespace Infraestructure.Models
     {
 
         private BinaryWriter binaryWriter;
-        private string fileName = "archivo.txt";
+    
         public Streamss()
         {
 
         }
-        public void Add(string texto)
+        public void Add(string texto, string ruta)
         {
             try
             {
 
-                using (FileStream fileStream = new FileStream(fileName, FileMode.Append, FileAccess.Write))
+                using (FileStream fileStream = new FileStream(ruta, FileMode.Append, FileAccess.Write))
                 {
                     binaryWriter = new BinaryWriter(fileStream);
                     binaryWriter.Write(texto);
-
+                    
                 }
 
             }
@@ -51,14 +51,16 @@ namespace Infraestructure.Models
             try
             {
 
-                text = Path.GetFullPath(@t);
+                text = File.ReadAllText(t);
 
                 return text;
             }
             catch (IOException)
             {
+
                 throw;
             }
+            
         }
 
   

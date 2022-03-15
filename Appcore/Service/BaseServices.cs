@@ -18,9 +18,9 @@ namespace Appcore.Service
         }
 
 
-        public void Add(T t)
+        public void Add(T t, T g)
         {
-            Model.Add(t);
+            Model.Add(t, g);
         }
 
         public string Read(T t)

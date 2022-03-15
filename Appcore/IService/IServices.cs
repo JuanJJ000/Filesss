@@ -9,7 +9,7 @@ namespace Appcore.IServices
     public interface IServices<T>
     {
 
-        void Add(T t);
+        void Add(T t, T g);
         string Read(T t);
 
     }
