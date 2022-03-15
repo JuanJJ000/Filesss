@@ -69,7 +69,8 @@ namespace Presentation
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult r = MessageBox.Show("¿Estas Seguro?", "Menu", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (r == DialogResult.Yes) this.Close();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
