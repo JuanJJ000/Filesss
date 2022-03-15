@@ -10,7 +10,6 @@ namespace Infraestructure.Models
 {
     public class Streamss : TextoModel
     {
-
         private BinaryWriter binaryWriter;
     
         public Streamss()
@@ -20,8 +19,7 @@ namespace Infraestructure.Models
         public void Add(string texto, string ruta)
         {
             try
-            {
-
+            { 
                 using (FileStream fileStream = new FileStream(ruta, FileMode.Append, FileAccess.Write))
                 {
                     binaryWriter = new BinaryWriter(fileStream);
