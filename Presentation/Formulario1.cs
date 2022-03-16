@@ -49,7 +49,12 @@ namespace Presentation
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult r = MessageBox.Show("¿Estas Seguro?", "Salir de la Aplicacion", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            if (r==DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+           
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,7 +92,7 @@ namespace Presentation
             {
                 if (File.Exists(saveFileDialog1.FileName))
                 {
-                    MessageBox.Show(rchtbxDatos.Text);
+                   
                     string txt = saveFileDialog1.FileName;
                     texto.Add(rchtbxDatos.Text, txt);
                    
@@ -95,7 +100,7 @@ namespace Presentation
                 }
                 else                
                 {
-                    MessageBox.Show(rchtbxDatos.Text);
+                   
                     string txt = saveFileDialog1.FileName;
                     texto.Add(rchtbxDatos.Text, txt);
                   
